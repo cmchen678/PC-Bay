@@ -6,15 +6,13 @@ import productRoute from "./routes/productRoute";
 import orderRoute from "./routes/orderRoute";
 import bodyParser from "body-parser";
 
+const mongodbUrl = config.MONGODB_URL;
 mongoose
-  .connect(
-    "mongodb+srv://Christian:belcross2yeah@cluster0.opd8z.mongodb.net/?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-    }
-  )
+  .connect(mongodbUrl, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+  })
   .catch((error) => console.log(error.reason));
 
 const app = express();

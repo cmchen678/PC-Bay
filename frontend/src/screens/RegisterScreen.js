@@ -13,7 +13,7 @@ function RegisterScreen(props) {
   const dispatch = useDispatch();
   const redirect = props.location.search
     ? props.location.search.split("=")[1]
-    : "/";
+    : "/signin";
 
   useEffect(() => {
     if (userInfo) {

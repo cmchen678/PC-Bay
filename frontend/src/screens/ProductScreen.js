@@ -36,9 +36,6 @@ function ProductScreen(props) {
                 <h4>{product.name}</h4>
               </li>
               <li>
-                {product.rating} Stars ({product.numReviews} Reviews)
-              </li>
-              <li>
                 Price: <b>${product.price}</b>
               </li>
               <li>
@@ -49,13 +46,14 @@ function ProductScreen(props) {
           </div>
           <div className="details-action">
             <ul>
-              <li>Price: {product.price}</li>
+              <li>Price: ${product.price}</li>
               <li>
                 Status: {product.countInStock > 0 ? "In Stock" : "Out of stock"}
               </li>
               <li>
-                Qty:{" "}
+                Quantity:{" "}
                 <select
+                  className="select-css"
                   value={qty}
                   onChange={(e) => {
                     setQty(e.target.value);

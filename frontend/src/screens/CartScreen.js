@@ -80,10 +80,7 @@ function CartScreen(props) {
         </ul>
       </div>
       <div className="cart-action">
-        <h3>
-          Subtotal ({cartItems.reduce((a, c) => a + c.qty, 0)} items): $
-          {subTotal.toFixed(2)}
-        </h3>
+        <h3>Subtotal: ${subTotal.toFixed(2)}</h3>
         <button
           onClick={checkoutHandler}
           className="button primary full-width"
