@@ -39,7 +39,7 @@ function App() {
               <FaShoppingCart />
             </Link>
             {userInfo ? (
-              <Link to="/profile">Account</Link>
+              <Link to="/profile">{userInfo.name}</Link>
             ) : (
               <Link to="/signin">Sign In</Link>
             )}
