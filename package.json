@@ -1,0 +1,38 @@
+{
+  "name": "capstone-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd frontend && npm run build",
+    "install-client": "cd frontend && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
+    "client": "cd frontend && npm start",
+    "start": "nodemon --exec babel-node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cmchen678/pc-bay.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.10.5",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "jwt-secret": "^1.1.1",
+    "mongoose": "^5.9.25",
+    "nodemon": "^2.0.4"
+  },
+  "devDependencies": {},
+  "description": "",
+  "homepage": "https://github.com/cmchen678/pc-bay",
+  "engines": {
+    "node": "12.18.2",
+    "npm": "6.14.6"
+  }
+}
