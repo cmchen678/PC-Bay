@@ -20,10 +20,11 @@ const listProducts = (
   searchKeyword = "",
   sortOrder = ""
 ) => async (dispatch) => {
+  const apiURL = process.env.REACT_APP_API_URL || "http:///localhost:5000/";
   try {
     dispatch({ type: PRODUCT_LIST_REQUEST });
     const { data } = await axios.get(
-      "/api/products?category=" +
+      `${apiURL}api/products?category=` +
         category +
         "&searchKeyword=" +
         searchKeyword +
