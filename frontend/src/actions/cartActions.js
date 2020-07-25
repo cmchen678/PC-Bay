@@ -6,10 +6,13 @@ import {
   CART_SAVE_SHIPPING,
   CART_SAVE_PAYMENT,
 } from "../constants/cartConstants";
+import config from "../config";
+
+const apiURL = config.API_URL;
 
 const addToCart = (productId, qty) => async (dispatch, getState) => {
   try {
-    const { data } = await Axios.get("/api/products/" + productId);
+    const { data } = await Axios.get(`${apiURL}api/products/` + productId);
     dispatch({
       type: CART_ADD_ITEM,
       payload: {

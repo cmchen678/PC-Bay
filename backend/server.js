@@ -9,14 +9,11 @@ import bodyParser from "body-parser";
 var cors = require("cors");
 const mongodbUrl = config.MONGODB_URL;
 mongoose
-  .connect(
-    "mongodb+srv://Christian:belcross2yeah@cluster0.opd8z.mongodb.net/pc-bay?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-    }
-  )
+  .connect(mongodbUrl, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+  })
   .catch((error) => console.log(error.reason));
 
 const app = express();

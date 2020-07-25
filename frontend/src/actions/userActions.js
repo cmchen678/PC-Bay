@@ -12,9 +12,11 @@ import {
   USER_UPDATE_SUCCESS,
   USER_UPDATE_FAIL,
 } from "../constants/userConstants";
+import config from "../config";
+
+const apiURL = config.API_URL;
 
 const signin = (email, password) => async (dispatch) => {
-  const apiURL = process.env.REACT_APP_API_URL || "http:///localhost:5000/";
   dispatch({ type: USER_SIGNIN_REQUEST, payload: { email, password } });
   try {
     const { data } = await Axios.post(`${apiURL}api/users/signin`, {
@@ -41,7 +43,7 @@ const update = ({ userId, name, email, password }) => async (
   });
   try {
     const { data } = await Axios.put(
-      "/api/users/" + userId,
+      `${apiURL}api/users/` + userId,
       { name, email, password },
       {
         headers: {
@@ -59,7 +61,7 @@ const update = ({ userId, name, email, password }) => async (
 const register = (name, email, password) => async (dispatch) => {
   dispatch({ type: USER_REGISTER_REQUEST, payload: { name, email, password } });
   try {
-    const { data } = await Axios.post("/api/users/register", {
+    const { data } = await Axios.post(`${apiURL}api/users/register`, {
       name,
       email,
       password,

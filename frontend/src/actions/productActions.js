@@ -14,13 +14,15 @@ import {
 } from "../constants/productConstants";
 import axios from "axios";
 import Axios from "axios";
+import config from "../config";
+
+const apiURL = config.API_URL;
 
 const listProducts = (
   category = "",
   searchKeyword = "",
   sortOrder = ""
 ) => async (dispatch) => {
-  const apiURL = process.env.REACT_APP_API_URL || "http:///localhost:5000/";
   try {
     dispatch({ type: PRODUCT_LIST_REQUEST });
     const { data } = await axios.get(
@@ -44,7 +46,7 @@ const saveProduct = (product) => async (dispatch, getState) => {
       userSignin: { userInfo },
     } = getState();
     if (!product._id) {
-      const { data } = await Axios.post("/api/products", product, {
+      const { data } = await Axios.post(`${apiURL}api/products`, product, {
         headers: {
           Authorization: "Bearer " + userInfo.token,
         },
@@ -70,7 +72,7 @@ const saveProduct = (product) => async (dispatch, getState) => {
 const detailsProduct = (productId) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_DETAILS_REQUEST, payload: productId });
-    const { data } = await axios.get("/api/products/" + productId);
+    const { data } = await axios.get(`${apiURL}api/products/` + productId);
     dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: PRODUCT_DETAILS_FAIL, payload: error.message });
@@ -83,7 +85,7 @@ const deleteProduct = (productId) => async (dispatch, getState) => {
       userSignin: { userInfo },
     } = getState();
     dispatch({ type: PRODUCT_DELETE_REQUEST, payload: productId });
-    const { data } = await axios.delete("/api/products/" + productId, {
+    const { data } = await axios.delete(`${apiURL}api/products/` + productId, {
       headers: {
         Authorization: "Bearer " + userInfo.token,
       },
