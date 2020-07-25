@@ -32,7 +32,7 @@ function App() {
         <header className="header">
           <div className="brand">
             <button onClick={openMenu}>&#9776;</button>
-            <Link to="/">PC Bay</Link>
+            <Link to="/React">PC Bay</Link>
           </div>
           <div className="header-links">
             <Link to="/cart">
@@ -102,7 +102,7 @@ function App() {
             <Route path="/product/:id" component={ProductScreen} />
             <Route path="/cart/:id?" component={CartScreen} />
             <Route path="/category/:id" component={HomeScreen} />
-            <Route path="/" exact={true} component={HomeScreen} />
+            <Route path="/React" exact={true} component={HomeScreen} />
           </div>
         </main>
         <footer className="footer">Christian Chen © Copyright 2020</footer>

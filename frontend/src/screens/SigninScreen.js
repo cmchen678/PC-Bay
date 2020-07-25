@@ -11,7 +11,7 @@ function SigninScreen(props) {
   const dispatch = useDispatch();
   const redirect = props.location.search
     ? props.location.search.split("=")[1]
-    : "/";
+    : "/React";
 
   useEffect(() => {
     if (userInfo) {
@@ -66,7 +66,9 @@ function SigninScreen(props) {
           <li>
             <Link
               to={
-                redirect === "/" ? "/register" : "register?redirect=" + redirect
+                redirect === "/React"
+                  ? "/register"
+                  : "register?redirect=" + redirect
               }
               className="button secondary text-center"
             >
