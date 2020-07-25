@@ -8,14 +8,11 @@ import bodyParser from "body-parser";
 
 const mongodbUrl = config.MONGODB_URL;
 mongoose
-  .connect(
-    "mongodb+srv://Christian:belcross2yeah@cluster0.opd8z.mongodb.net/pc-bay?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-    }
-  )
+  .connect(mongodbUrl, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+  })
   .catch((error) => console.log(error.reason));
 
 const app = express();
@@ -26,6 +23,10 @@ app.use("/api/products", productRoute);
 app.use("/api/orders", orderRoute);
 app.get("/api/config/paypal", (req, res) => {
   res.send(config.PAYPAL_CLIENT_ID);
+});
+
+app.get("/", (req, res) => {
+  res.send("Test");
 });
 
 app.listen(PORT, () => {
