@@ -26,7 +26,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://pc-bay-git-master.cmchen678.vercel.app/React",
+  "homepage": "https://pc-bay-git-master.cmchen678.vercel.app/",
   "eslintConfig": {
     "extends": "react-app"
   },
