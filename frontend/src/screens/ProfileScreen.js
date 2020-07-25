@@ -80,6 +80,7 @@ function ProfileScreen(props) {
                   onChange={(e) => setPassword(e.target.value)}
                 ></input>
               </li>
+
               <li>
                 <button type="submit" className="button primary">
                   Update

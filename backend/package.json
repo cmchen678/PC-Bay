@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cmchen678/pc-bay.git"
+    "url": "git+https://github.com/cmchen678/PC-Bay.git"
   },
   "author": "",
   "license": "ISC",
@@ -26,7 +26,7 @@
   },
   "devDependencies": {},
   "description": "",
-  "homepage": "https://github.com/cmchen678/pc-bay",
+  "homepage": ".",
   "engines": {
     "node": "12.18.2",
     "npm": "6.14.6"

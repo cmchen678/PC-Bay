@@ -12,11 +12,16 @@ import {
   USER_UPDATE_SUCCESS,
   USER_UPDATE_FAIL,
 } from "../constants/userConstants";
+import config from "../../../backend/config";
 
 const signin = (email, password) => async (dispatch) => {
+  const apiURL = process.env.REACT_APP_API_URL || "http:///localhost:5000/";
   dispatch({ type: USER_SIGNIN_REQUEST, payload: { email, password } });
   try {
-    const { data } = await Axios.post("/api/users/signin", { email, password });
+    const { data } = await Axios.post(`${apiURL}api/users/signin`, {
+      email,
+      password,
+    });
     dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });
     Cookie.set("userInfo", JSON.stringify(data));
   } catch (error) {
