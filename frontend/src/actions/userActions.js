@@ -12,7 +12,6 @@ import {
   USER_UPDATE_SUCCESS,
   USER_UPDATE_FAIL,
 } from "../constants/userConstants";
-import config from "../../../backend/config";
 
 const signin = (email, password) => async (dispatch) => {
   const apiURL = process.env.REACT_APP_API_URL || "http:///localhost:5000/";
