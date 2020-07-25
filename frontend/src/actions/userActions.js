@@ -17,7 +17,7 @@ const signin = (email, password) => async (dispatch) => {
   const apiURL = process.env.REACT_APP_API_URL || "http:///localhost:5000/";
   dispatch({ type: USER_SIGNIN_REQUEST, payload: { email, password } });
   try {
-    const { data } = await Axios.post(`${apiURL}api/users/signin`, {
+    const { data } = await Axios.post(`${apiURL}/users/signin`, {
       email,
       password,
     });
